@@ -1,0 +1,18 @@
+command /gs:
+	give iron sword named "&6Giant's Sword" to event-player
+
+on rightclick:
+		spawn a giant at location of event-player
+		set display name of last spawned entity to "Dinnerbone"
+		set {_gs} to last spawned entity
+		apply invisibility 1 to {_gs} for 10 minutes
+		apply slowness 255 to {_gs} for 10 minutes
+		set tool of {_gs} to iron sword
+		make player damage all entities in radius 10 of player by 320
+		wait 3 seconds
+		set tool of {_gs} to air
+		wait 2 tick
+		kill {_gs}
+
+on damage of a giant:
+	set damage to 0
